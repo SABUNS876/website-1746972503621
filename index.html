@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Elegant Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+      font-family: 'Montserrat', sans-serif;
+      color: #f3f3f3;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #444;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #e6c07b;
+      letter-spacing: 2px;
+    }
+    nav a {
+      color: #e6c07b;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f9f4e6;
+    }
+
+    main {
+      padding: 60px 30px 80px 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    section.intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #e6c07b;
+      letter-spacing: 1px;
+    }
+    .intro p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #ddd;
+      font-weight: 400;
+    }
+
+    section.projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .project-card {
+      background: linear-gradient(145deg, #2f2f2f, #222222);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(230, 192, 123, 0.7);
+    }
+    .project-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: filter 0.3s ease;
+    }
+    .project-card:hover .project-image {
+      filter: brightness(1);
+    }
+    .project-content {
+      padding: 20px 25px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-title {
+      margin: 0 0 10px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #e6c07b;
+      letter-spacing: 0.5px;
+      user-select:none;
+    }
+    .project-description {
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.5;
+      flex: 1;
+      user-select:none;
+    }
+    .project-link {
+      margin-top: 20px;
+      align-self: flex-start;
+      padding: 8px 18px;
+      background: #e6c07b;
+      color: #222;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease;
+      user-select:none;
+    }
+    .project-link:hover {
+      background-color: #d4b35f;
+    }
+
+    section.about {
+      background: rgba(230, 192, 123, 0.1);
+      border-radius: 15px;
+      padding: 40px 30px;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #f0e6c8;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      user-select:none;
+    }
+    section.about h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #e6c07b;
+      letter-spacing: 1px;
+    }
+
+    footer {
+      background: #111;
+      color: #888;
+      padding: 20px 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      user-select:none;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 40px 20px 60px 20px;
+      }
+      header {
+        padding: 15px 20px;
+      }
+      nav a {
+        margin-left: 20px;
+        font-size: 0.9rem;
+      }
+      .intro h2 {
+        font-size: 2rem;
+      }
+      .project-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kirana Aurelia</h1>
+    <nav aria-label="Primary navigation">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro" aria-label="Introduction">
+      <h2>Modern. Elegant. Timeless.</h2>
+      <p>Welcome to my portfolio — a curated collection of exclusive projects that embody elegance and sophistication in modern design. Crafted to inspire and impress.</p>
+    </section>
+    <section id="projects" class="projects" aria-label="Projects">
+      <article class="project-card" tabindex="0" aria-labelledby="project-one-title">
+        <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=800&q=80" alt="Luxurious living room design" class="project-image" />
+        <div class="project-content">
+          <h3 class="project-title" id="project-one-title">Luxurium Residence</h3>
+          <p class="project-description">A high-end residential design blending modern aesthetics with timeless luxury and rich textured materials.</p>
+          <a href="#" class="project-link" aria-describedby="project-one-title">View Details</a>
+        </div>
+      </article>
+      <article class="project-card" tabindex="0" aria-labelledby="project-two-title">
+        <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80" alt="Elegant website homepage mockup" class="project-image" />
+        <div class="project-content">
+          <h3 class="project-title" id="project-two-title">Opulence Site</h3>
+          <p class="project-description">A premium website concept for luxury brands focusing on sleek minimalism and sublime user experience.</p>
+          <a href="#" class="project-link" aria-describedby="project-two-title">View Details</a>
+        </div>
+      </article>
+      <article class="project-card" tabindex="0" aria-labelledby="project-three-title">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Luxury watch product shot" class="project-image" />
+        <div class="project-content">
+          <h3 class="project-title" id="project-three-title">Echelon Timepieces</h3>
+          <p class="project-description">Logo and branding suite developed for an upscale watchmaker combining tradition with modern luxury.</p>
+          <a href="#" class="project-link" aria-describedby="project-three-title">View Details</a>
+        </div>
+      </article>
+    </section>
+    <section id="about" class="about" aria-label="About Kirana Aurelia">
+      <h3>About Me</h3>
+      <p>I am a designer passionate about creating luxurious and timeless experiences through visual storytelling. With over a decade in the design industry, my work is defined by meticulous craftsmanship, elegant simplicity, and a deep understanding of exclusive aesthetics.</p>
+    </section>
+    <section id="contact" class="about" aria-label="Contact information" style="margin-top: 40px;">
+      <h3>Contact</h3>
+      <p>Interested in collaborating or want to learn more? Reach out at <a href="mailto:kirana.aurelia@example.com" style="color:#e6c07b; text-decoration:none;">kirana.aurelia@example.com</a></p>
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 Kirana Aurelia - All Rights Reserved
+  </footer>
+</body>
+</html>
+
+```
